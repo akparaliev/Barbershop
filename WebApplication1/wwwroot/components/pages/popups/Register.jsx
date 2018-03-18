@@ -54,7 +54,7 @@ export default class Register extends Component {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button onClick={this.handleClick} className="btn btn-custom btn-lg btn-block">Login</button>
+                            <button onClick={this.handleClick} className="btn btn-custom btn-lg btn-block">Register</button>
                             <button type="button" class="btn btn-default" onClick={onClose}>Close</button>
                         </div>
                     </div>

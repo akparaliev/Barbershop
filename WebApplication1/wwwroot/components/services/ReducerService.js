@@ -1,8 +1,8 @@
 ﻿import { combineReducers } from 'redux'
 import { reducer as notifications } from 'react-notification-system-redux';
-import { auth } from './reducers/Auth';
-import { service } from './reducers/Service';
-import { visit } from './reducers/Visit';
+import { auth } from './reducers/AuthReducer';
+import { service } from './reducers/ServiceReducer';
+import { visit } from './reducers/VisitReducer';
 
 
 const barberApp = combineReducers({

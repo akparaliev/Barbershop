@@ -1,7 +1,7 @@
 ﻿import {
     LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE, LOGOUT_SUCCESS,
     REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE
-} from '../ActionService'
+} from '../actions/AuthAction'
 
 
 export function auth(state = {

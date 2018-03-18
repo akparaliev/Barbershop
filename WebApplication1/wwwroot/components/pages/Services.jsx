@@ -1,7 +1,7 @@
 ﻿import React, { Component, PropTypes } from 'react'
 import ServicePopup from '../pages/popups/ServicePopup.jsx'
 import VisitPopup from '../pages/popups/VisitPopup.jsx'
-import { fetchServices, addService, deleteService, addServiceVisit} from '../services/ActionService'
+import { fetchServices, addService, deleteService, addServiceVisit } from '../services/actions/ServiceAction'
 import Notifications from 'react-notification-system-redux';
 
 export default class Services extends React.Component {

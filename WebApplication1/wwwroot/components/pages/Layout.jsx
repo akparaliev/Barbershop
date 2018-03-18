@@ -1,5 +1,4 @@
-﻿import { loginUser, fetchServices } from '../services/ActionService'
-import Header from '../sections/Header.jsx';
+﻿import Header from '../sections/Header.jsx';
 import Footer from '../sections/Footer.jsx'
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'

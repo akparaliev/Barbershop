@@ -1,7 +1,7 @@
 ﻿import axios from 'axios';
 const BASE_URL = 'http://localhost:3000/api/'
 
-function callApi(options, authenticated) {
+function makeRequest(options, authenticated) {
     const client = axios.create({
         baseURL: BASE_URL
     });
@@ -20,12 +20,6 @@ function callApi(options, authenticated) {
             return response.data;
         }
         ).catch(error => {
-            if (error.response) {
-                console.error('Status:', error.response.status);
-                console.error('Data:', error.response.data);
-            } else {
-                console.error('Error Message:', error.message);
-            }
             return Promise.reject(error.response || error.message);
         });
 }
@@ -34,19 +28,17 @@ export const CALL_API = Symbol('Call API')
 
 export default store => next => action => {
 
-    const callAPI = action[CALL_API]
+    const callAPI = action[CALL_API];
 
-    // So the middleware doesn't get applied to every single action
-    if (typeof callAPI === 'undefined') {
-        return next(action)
+    if (callAPI == null) {
+        return next(action);
     }
 
-    let { options, types, authenticated} = callAPI
+    let { options, types, authenticated } = callAPI;
 
-    const [requestType, successType, errorType] = types
+    const [requestType, successType, errorType] = types;
 
-    // Passing the authenticated boolean back in our data will let us distinguish between normal and secret quotes
-    return callApi(options, authenticated).then(
+    return makeRequest(options, authenticated).then(
         response =>
             next({
                 response,

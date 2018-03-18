@@ -1,6 +1,6 @@
 ﻿import React, { Component } from 'react'
 import { Link } from 'react-router'
-import { loginUser, logoutUser, registerUser } from '../services/ActionService'
+import { loginUser, logoutUser, registerUser } from '../services/actions/AuthAction'
 import PropTypes from 'prop-types'
 import Login from '../pages/popups/Login.jsx'
 import Register from '../pages/popups/Register.jsx'

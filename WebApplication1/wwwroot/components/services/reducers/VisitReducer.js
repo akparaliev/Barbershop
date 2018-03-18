@@ -1,7 +1,7 @@
 ﻿import {
     VISIT_REQUEST, VISIT_SUCCESS, VISIT_FAILURE,
     VISIT_BAN_REQUEST, VISIT_BAN_SUCCESS, VISIT_BAN_FAILURE
-} from '../ActionService'
+} from '../actions/VisitAction'
 
 
 

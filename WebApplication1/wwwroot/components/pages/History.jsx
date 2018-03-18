@@ -1,8 +1,8 @@
 ﻿import React, { Component, PropTypes } from 'react'
-import { fetchVisits, cancelServiceVisit } from '../services/ActionService'
+import { fetchVisits, cancelServiceVisit } from '../services/actions/VisitAction'
 import moment from 'moment'
 import Notifications from 'react-notification-system-redux';
-export default class Services extends React.Component {
+export default class History extends React.Component {
     constructor(props) {
         super(props);
         props.isAuthenticated && props.dispatch(fetchVisits(props.userId));

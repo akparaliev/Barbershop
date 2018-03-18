@@ -1,0 +1,12 @@
+C:\Users\247434\source\repos\Barbershop\WebApplication1\bin\Release\netcoreapp2.0\Barbershop.deps.json
+C:\Users\247434\source\repos\Barbershop\WebApplication1\bin\Release\netcoreapp2.0\Barbershop.runtimeconfig.json
+C:\Users\247434\source\repos\Barbershop\WebApplication1\bin\Release\netcoreapp2.0\Barbershop.runtimeconfig.dev.json
+C:\Users\247434\source\repos\Barbershop\WebApplication1\bin\Release\netcoreapp2.0\Barbershop.dll
+C:\Users\247434\source\repos\Barbershop\WebApplication1\bin\Release\netcoreapp2.0\Barbershop.pdb
+C:\Users\247434\source\repos\Barbershop\WebApplication1\obj\Release\netcoreapp2.0\Barbershop.csprojResolveAssemblyReference.cache
+C:\Users\247434\source\repos\Barbershop\WebApplication1\obj\Release\netcoreapp2.0\Barbershop.csproj.CoreCompileInputs.cache
+C:\Users\247434\source\repos\Barbershop\WebApplication1\obj\Release\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\247434\source\repos\Barbershop\WebApplication1\obj\Release\netcoreapp2.0\Barbershop.AssemblyInfoInputs.cache
+C:\Users\247434\source\repos\Barbershop\WebApplication1\obj\Release\netcoreapp2.0\Barbershop.AssemblyInfo.cs
+C:\Users\247434\source\repos\Barbershop\WebApplication1\obj\Release\netcoreapp2.0\Barbershop.dll
+C:\Users\247434\source\repos\Barbershop\WebApplication1\obj\Release\netcoreapp2.0\Barbershop.pdb

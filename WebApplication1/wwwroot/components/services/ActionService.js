@@ -38,7 +38,7 @@ export function loginUser(creds) {
     return dispatch => {
         // We dispatch requestLogin to kickoff the call to the API
         dispatch(requestLogin(creds))
-        return axios.post('http://localhost:63282/api/user/login', creds)
+        return axios.post('http://localhost:3000/api/user/login', creds)
             .then(response => {
                     let user = { id: response.data.id, name: response.data.name };
                     localStorage.setItem('id_token', response.data.id_token)
@@ -124,7 +124,7 @@ function registerError(message) {
 export function registerUser(creds) {
     return dispatch => {
         dispatch(requestRegister(creds))
-        return axios.post('http://localhost:63282/api/user/register', creds)
+        return axios.post('http://localhost:3000/api/user/register', creds)
             .then(response => {
                 let user = { id: response.data.id, name: response.data.name };
                 localStorage.setItem('id_token', response.data.id_token)

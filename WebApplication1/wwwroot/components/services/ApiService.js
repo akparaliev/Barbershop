@@ -1,12 +1,12 @@
 ﻿import axios from 'axios';
-const BASE_URL = 'http://localhost:63282/api/'
+const BASE_URL = 'http://localhost:3000/api/'
 
 function callApi(options, authenticated) {
     const client = axios.create({
         baseURL: BASE_URL
     });
-    let token = localStorage.getItem('access_token') || null;
     if (authenticated) {
+        let token = localStorage.getItem('access_token');
         if (token) {
             options = { ...options, headers: { 'Authorization': `Bearer ${token}` } }
         }

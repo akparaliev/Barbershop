@@ -1,15 +1,9 @@
 ﻿import { CALL_API } from '../ApiService'
-import axios from 'axios';
+import axios from 'axios'
 
 export const SERVICE_REQUEST = 'SERVICE_REQUEST'
 export const SERVICE_SUCCESS = 'SERVICE_SUCCESS'
 export const SERVICE_FAILURE = 'SERVICE_FAILURE'
-export const SERVICE_DELETE_REQUEST = 'SERVICE_DELETE_REQUEST'
-export const SERVICE_DELETE_SUCCESS = 'SERVICE_DELETE_SUCCESS'
-export const SERVICE_DELETE_FAILURE = 'SERVICE_DELETE_FAILURE'
-export const SERVICE_VISIT_REQUEST = 'SERVICE_VISIT_REQUEST'
-export const SERVICE_VISIT_SUCCESS = 'SERVICE_VISIT_SUCCESS'
-export const SERVICE_VISIT_FAILURE = 'SERVICE_VISIT_FAILURE'
 
 export function fetchServices() {
     return {
@@ -38,6 +32,10 @@ export function addService(data) {
     }
 }
 
+export const SERVICE_DELETE_REQUEST = 'SERVICE_DELETE_REQUEST'
+export const SERVICE_DELETE_SUCCESS = 'SERVICE_DELETE_SUCCESS'
+export const SERVICE_DELETE_FAILURE = 'SERVICE_DELETE_FAILURE'
+
 export function deleteService(id) {
     return {
         [CALL_API]: {
@@ -51,6 +49,9 @@ export function deleteService(id) {
     }
 }
 
+export const SERVICE_VISIT_REQUEST = 'SERVICE_VISIT_REQUEST'
+export const SERVICE_VISIT_SUCCESS = 'SERVICE_VISIT_SUCCESS'
+export const SERVICE_VISIT_FAILURE = 'SERVICE_VISIT_FAILURE'
 
 export function addServiceVisit(data) {
     return {

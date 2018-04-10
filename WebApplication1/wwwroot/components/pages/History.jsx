@@ -1,23 +1,31 @@
-﻿import React, { Component, PropTypes } from 'react'
+﻿import React, { Component } from 'react'
 import { fetchVisits, cancelServiceVisit } from '../services/actions/VisitAction'
 import moment from 'moment'
 import Notifications from 'react-notification-system-redux';
-export default class History extends React.Component {
+import PropTypes from 'prop-types'
+
+export default class History extends Component {
+
     constructor(props) {
         super(props);
-        props.isAuthenticated && props.dispatch(fetchVisits(props.userId));
+
+        props.isAuthenticated &&
+            props.dispatch(fetchVisits(props.userId));
     }
 
     cancelVisit(id) {
         this.props.dispatch(cancelServiceVisit(id)).then(() => {
-            this.props.dispatch(Notifications.success({title: 'Visit is cancelled'}));
-            this.props.dispatch(fetchVisits(this.props.userId))
+            this.props.dispatch(Notifications.success({
+                title: 'Visit is cancelled'
+            }));
+            this.props.dispatch(fetchVisits(this.props.userId));
         });
     }
 
 
     render() {
-        const { isAuthenticated, visits, dispatch, userId, notifications } = this.props
+        const { isAuthenticated, visits, dispatch, userId, notifications } = this.props;
+
         return (
             <div class="center-block">
                 {visits && visits.length>0 && isAuthenticated &&
@@ -58,4 +66,12 @@ export default class History extends React.Component {
             </div>
         );
     }
+}
+
+History.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired,
+    userId: PropTypes.string,
+    visits: PropTypes.object,
+    notifications: PropTypes.array
 }

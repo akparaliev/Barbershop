@@ -1,16 +1,22 @@
 ﻿import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import DateTime from 'react-datetime'
 import moment from 'moment'
+import PropTypes from 'prop-types'
 
 export default class VisitPopup extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { name: '', date: moment() };
+
+        this.state = {
+            name: '',
+            date: moment()
+        };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-
     }
+
     handleChange(event) {
         this.setState({
              date: event
@@ -25,10 +31,9 @@ export default class VisitPopup extends Component {
         });
     }
 
-
     render() {
+        const { onClose } = this.props;
 
-        const { onClose } = this.props
         return (
             <div class="customModal fade show in" role="dialog">
                 <div class="modal-dialog width-30">
@@ -56,5 +61,6 @@ export default class VisitPopup extends Component {
 }
 
 VisitPopup.propTypes = {
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired
 }

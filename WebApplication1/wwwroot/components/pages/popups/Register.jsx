@@ -2,13 +2,20 @@
 import PropTypes from 'prop-types'
 
 export default class Register extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { email: '', password: '', name: '' };
+
+        this.state = {
+            email: '',
+            password: '',
+            name: ''
+        };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-
     }
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value.trim()
@@ -23,10 +30,9 @@ export default class Register extends Component {
         });
     }
 
-
     render() {
+        const { errorMessage, onClose } = this.props;
 
-        const { errorMessage, onClose } = this.props
         return (
             <div class="customModal fade show in" role="dialog">
                 <div class="modal-dialog width-30">
@@ -66,5 +72,6 @@ export default class Register extends Component {
 
 Register.propTypes = {
     onRegisterClick: PropTypes.func.isRequired,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    onClose: PropTypes.func.isRequired
 }

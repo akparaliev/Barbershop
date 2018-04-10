@@ -2,13 +2,18 @@
 import PropTypes from 'prop-types'
 
 export default class ServicePopup extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { name: ''};
+
+        this.state = {
+            name: ''
+        };
+
         this.handleChange = this.handleChange.bind(this);
         this.handleClick = this.handleClick.bind(this);
-
     }
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value
@@ -23,8 +28,8 @@ export default class ServicePopup extends Component {
 
 
     render() {
+        const { onClose } = this.props;
 
-        const {  onClose } = this.props
         return (
             <div class="customModal fade show in" role="dialog">
                 <div class="modal-dialog width-30">
@@ -51,5 +56,6 @@ export default class ServicePopup extends Component {
 }
 
 ServicePopup.propTypes = {
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func.isRequired,
+    onClose: PropTypes.func.isRequired
 }

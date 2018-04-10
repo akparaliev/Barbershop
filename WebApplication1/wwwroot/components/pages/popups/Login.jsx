@@ -2,13 +2,19 @@
 import PropTypes from 'prop-types'
 
 export default class Login extends Component {
+
     constructor(props) {
         super(props);
-        this.state = { name: '', password: '' };
+
+        this.state = {
+            name: '',
+            password: ''
+        };
+
         this.handleChange = this.handleChange.bind(this);
-        this.handleClick = this.handleClick.bind(this);
-        
+        this.handleClick = this.handleClick.bind(this);    
     }
+
     handleChange(event) {
         this.setState({
             [event.target.name]: event.target.value.trim()
@@ -23,9 +29,9 @@ export default class Login extends Component {
     }
 
 
-    render() {
-        
-        const { errorMessage,onClose } = this.props
+    render() {  
+        const { errorMessage, onClose } = this.props;
+
         return (
             <div class="customModal fade show in"  role="dialog">
                     <div class="modal-dialog width-30">
@@ -61,5 +67,6 @@ export default class Login extends Component {
 
 Login.propTypes = {
     onLoginClick: PropTypes.func.isRequired,
-    errorMessage: PropTypes.string
+    errorMessage: PropTypes.string,
+    onClose: PropTypes.func.isRequired
 }

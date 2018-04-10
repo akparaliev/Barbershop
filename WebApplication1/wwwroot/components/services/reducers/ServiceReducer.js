@@ -5,17 +5,20 @@
 } from '../actions/ServiceAction'
 
 
-export function service(state = {
-    isFetching: false,
-    services: null,
-    authenticated: false
-}, action) {
+export function service(
+    state = {
+        isFetching: false,
+        services: null,
+        authenticated: false
+    }, action) {
+
     switch (action.type) {
         case SERVICE_REQUEST:
             return {
                 ...state,
                 isFetching: true
             };
+
         case SERVICE_SUCCESS:
             return {
                 ...state,
@@ -23,43 +26,51 @@ export function service(state = {
                 services: action.response,
                 authenticated: action.authenticated || false
             };
+
         case SERVICE_FAILURE:
             return {
                 ...state,
                 isFetching: false
             };
+
         case SERVICE_DELETE_REQUEST:
             return {
                 ...state,
                 isFetching: true
             };
+
         case SERVICE_DELETE_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
                 authenticated: action.authenticated || false
             };
+
         case SERVICE_DELETE_FAILURE:
             return {
                 ...state,
                 isFetching: false
             };
+
         case SERVICE_VISIT_REQUEST:
             return {
                 ...state,
                 isFetching: true
             };
+
         case SERVICE_VISIT_SUCCESS:
             return {
                 ...state,
                 isFetching: false,
                 authenticated: action.authenticated || false
             };
+
         case SERVICE_VISIT_FAILURE:
             return {
                 ...state,
                 isFetching: false
             };
+
         default:
             return state;
     }

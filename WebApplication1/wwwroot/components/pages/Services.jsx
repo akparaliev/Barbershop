@@ -1,27 +1,53 @@
-﻿import React, { Component, PropTypes } from 'react'
+﻿import React, { Component } from 'react'
 import ServicePopup from '../pages/popups/ServicePopup.jsx'
 import VisitPopup from '../pages/popups/VisitPopup.jsx'
 import { fetchServices, addService, deleteService, addServiceVisit } from '../services/actions/ServiceAction'
-import Notifications from 'react-notification-system-redux';
+import Notifications from 'react-notification-system-redux'
+import PropTypes from 'prop-types'
 
-export default class Services extends React.Component {
+export default class Services extends Component {
+
     constructor(props) {
         super(props);
-        props.isAuthenticated && props.dispatch(fetchServices());
-        this.state = { isAddServiceShowingModal: false ,isAddServiceVisitShowingModal:false};
+
+        props.isAuthenticated &&
+            props.dispatch(fetchServices());
+
+        this.state = {
+            addServiceModalOpened: false,
+            addServiceVisitModalOpened: false
+        };
     }
+
     deleteRow(id) {
         this.props.dispatch(deleteService(id)).then(() => {
-            this.props.dispatch(Notifications.success({ title: 'Service deleted succesfully' }));
+            this.props.dispatch(Notifications.success({
+                title: 'Service deleted succesfully'
+            }));
             this.props.dispatch(fetchServices())
         });
     }
-    addVisit = (id) => this.setState({ isAddServiceVisitShowingModal:true, serviceForVisitId:id})
-    addRow = () => this.setState({ isAddServiceShowingModal: true })
-    handleClose = () => this.setState({ isAddServiceShowingModal: false, isAddServiceVisitShowingModal:false })
+
+    addVisit = (id) => this.setState({
+        addServiceVisitModalOpened: true,
+        serviceForVisitId: id
+    })
+
+    addRow = () => this.setState({
+        addServiceModalOpened: true
+    })
+
+    handleAddServiceVisitModalClose = () => this.setState({
+        addServiceVisitModalOpened: false
+    })
+
+    handleAddServiceModalClose = () => this.setState({
+        addServiceModalOpened: false
+    })
 
     render() {
-        const { onServiceClick, isAuthenticated, services, dispatch, userId, notifications } = this.props
+        const { onServiceClick, isAuthenticated, services, dispatch, userId, notifications } = this.props;
+
         return (
             <div class="center-block">
                 {isAuthenticated  &&
@@ -61,22 +87,22 @@ export default class Services extends React.Component {
                         </tbody>
                     </table >
                 }
-                {this.state.isAddServiceShowingModal &&
-                    <ServicePopup onClose={this.handleClose}
+                {this.state.addServiceModalOpened &&
+                    <ServicePopup onClose={this.handleAddServiceModalClose}
                         onClick={data => dispatch(addService(data)).then(() => {
-                            this.handleClose();
+                            this.handleAddServiceModalClose();
                             this.props.dispatch(Notifications.success({ title: 'Service added succesfully' }));
                             this.props.dispatch(fetchServices())
                         })}
                     >
                     </ServicePopup>
                 }
-                {this.state.isAddServiceVisitShowingModal && 
-                    <VisitPopup onClose={this.handleClose}
+                {this.state.addServiceVisitModalOpened && 
+                    <VisitPopup onClose={this.handleAddServiceVisitModalClose}
                         serviceId={this.state.serviceForVisitId}
                         userId={userId}
                         onClick={data => dispatch(addServiceVisit(data)).then(() => {
-                            this.handleClose();
+                            this.handleAddServiceVisitModalClose();
                             this.props.dispatch(Notifications.success({ title: 'Visit added succesfully' }));
                         })}
                     >
@@ -87,4 +113,13 @@ export default class Services extends React.Component {
             </div>
         );
     }
+}
+
+Services.propTypes = {
+    dispatch: PropTypes.func.isRequired,
+    services: PropTypes.object,
+    isAuthenticated: PropTypes.bool.isRequired,
+    userId: PropTypes.string,
+    notifications: PropTypes.array,
+    onServiceClick: PropTypes.func.isRequired
 }

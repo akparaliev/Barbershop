@@ -1,5 +1,5 @@
 ﻿import { CALL_API } from '../ApiService'
-import axios from 'axios';
+import axios from 'axios'
 
 
 export const VISIT_REQUEST = 'VISIT_REQUEST'

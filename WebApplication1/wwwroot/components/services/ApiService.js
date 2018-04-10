@@ -1,12 +1,14 @@
-﻿import axios from 'axios';
+﻿import axios from 'axios'
 const BASE_URL = 'http://localhost:3000/api/'
 
 function makeRequest(options, authenticated) {
     const client = axios.create({
         baseURL: BASE_URL
     });
+
     if (authenticated) {
         let token = localStorage.getItem('access_token');
+
         if (token) {
             options = { ...options, headers: { 'Authorization': `Bearer ${token}` } }
         }
@@ -18,8 +20,8 @@ function makeRequest(options, authenticated) {
     return client(options)
         .then(response => {
             return response.data;
-        }
-        ).catch(error => {
+        })
+        .catch(error => {
             return Promise.reject(error.response || error.message);
         });
 }

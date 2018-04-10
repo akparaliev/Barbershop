@@ -1,9 +1,9 @@
-﻿import React from "react";
+﻿import React, { Component } from 'react'
 
-export default class Types extends React.Component {
+export default class Types extends Component {
     render() {
         return (
-            <h1>Main</h1>
+            <h1>Main page</h1>
         );
     }
 }

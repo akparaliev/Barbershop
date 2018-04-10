@@ -1,4 +1,4 @@
-﻿import axios from 'axios';
+﻿import axios from 'axios'
 
 export const LOGIN_REQUEST = 'LOGIN_REQUEST'
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
@@ -91,13 +91,18 @@ export function loginUser(creds) {
         dispatch(requestLogin(creds))
         return axios.post('http://localhost:3000/api/user/login', creds)
             .then(response => {
-                let user = { id: response.data.id, name: response.data.name };
+                let user = {
+                    id: response.data.id,
+                    name: response.data.name
+                };
+
                 localStorage.setItem('id_token', response.data.id_token)
                 localStorage.setItem('access_token', response.data.access_token)
                 localStorage.setItem('user', JSON.stringify(user))
+
                 dispatch(receiveLogin(user))
-            }
-            ).catch(error => {
+            })
+            .catch(error => {
                 dispatch(loginError(error.response.data))
             });
     }
@@ -106,9 +111,11 @@ export function loginUser(creds) {
 export function logoutUser() {
     return dispatch => {
         dispatch(requestLogout())
+
         localStorage.removeItem('id_token')
         localStorage.removeItem('access_token')
         localStorage.removeItem('user')
+
         dispatch(receiveLogout())
     }
 }
@@ -120,13 +127,18 @@ export function registerUser(creds) {
         dispatch(requestRegister(creds))
         return axios.post('http://localhost:3000/api/user/register', creds)
             .then(response => {
-                let user = { id: response.data.id, name: response.data.name };
+                let user = {
+                    id: response.data.id,
+                    name: response.data.name
+                };
+
                 localStorage.setItem('id_token', response.data.id_token)
                 localStorage.setItem('access_token', response.data.access_token)
                 localStorage.setItem('user', JSON.stringify(user))
+
                 dispatch(receiveRegister(user))
-            }
-            ).catch(error => {
+            })
+            .catch(error => {
                 dispatch(registerError(error.response.data))
             });;
     }

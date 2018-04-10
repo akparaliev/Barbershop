@@ -1,6 +1,6 @@
-﻿import React from "react";
+﻿import React, { Component } from 'react'
 
-export default class Body extends React.Component {
+export default class Body extends Component {
     render() {
         return (
             <footer class="footer text-center">
